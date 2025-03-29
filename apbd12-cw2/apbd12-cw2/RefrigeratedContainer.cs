@@ -19,7 +19,7 @@ public class RefrigeratedContainer : Container
     };
     public RefrigeratedContainer(double height, double containerMass, double depth, double maxLoad, string productType, 
         double temperature) 
-        : base(height, containerMass, depth, maxLoad, ContainerType.Refrigerated)
+        : base(height, containerMass, depth, maxLoad, ContainerType.R)
     {
         if(TemperaturesDict.ContainsKey(productType))
             ProductType = productType;

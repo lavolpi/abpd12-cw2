@@ -12,9 +12,9 @@ public abstract class Container : OverfillException
 
     public enum ContainerType
     {
-        Liquid,
-        Gas,
-        Refrigerated
+        L,
+        G,
+        R
     }
 
     protected ContainerType _containerType;
