@@ -17,7 +17,7 @@ public abstract class Container : OverfillException
         R
     }
 
-    protected ContainerType _containerType;
+    public ContainerType _containerType;
     public Container(double height, double containerMass, 
         double depth, double maxLoad, ContainerType containerType)
     {
@@ -28,6 +28,7 @@ public abstract class Container : OverfillException
         _containerType = containerType;
         _serialNumber = $"KON-{_containerType}-{++_Id}";
         MaxLoad = maxLoad;
+        Storage.AddContainer(this);
     }
 
     public double LoadMass
@@ -104,7 +105,7 @@ public abstract class Container : OverfillException
     
     public virtual String ToString()
     {
-        return $"{SerialNumber}, Masa: {LoadMass}, Wysokość: {Height}, Waga własna: {ContainerMass}, " +
+        return $"{SerialNumber} (Masa: {LoadMass}, Wysokość: {Height}, Waga własna: {ContainerMass}, " +
                $"Głębokość: {Depth}, Maksymalna Ładowność: {MaxLoad}";
     }
 }

@@ -15,8 +15,8 @@ refrigeratedContainer.Fill(250);
 
 //Załadowanie kontenera na statek
 
-ContainerShip containerShip1 = new ContainerShip(20, 5, 1000);
-ContainerShip containerShip2 = new ContainerShip(30, 4, 800);
+ContainerShip containerShip1 = new ContainerShip("Statek 1",20, 5, 1000);
+ContainerShip containerShip2 = new ContainerShip("Statek 2",30, 4, 800);
 
 containerShip1.AddContainer(liquidContainer);
 
@@ -50,3 +50,7 @@ Console.WriteLine(liquidContainer.ToString());
 //Wypisanie informacji o danym statku i jego ładunku
 
 containerShip2.GetInfo();
+
+//Aplikacja konsolowa
+
+ConsoleApp consoleApp = new ConsoleApp();

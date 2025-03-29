@@ -28,6 +28,6 @@ public class GasContainer : Container, IHazardNotifier
 
     public override String ToString()
     {
-        return base.ToString() + $", Ciśnienie: {Pressure}";
+        return base.ToString() + $", Ciśnienie: {Pressure})";
     }
 }

@@ -5,22 +5,34 @@ namespace apbd12_cw2;
 public class ContainerShip
 {
     private HashSet<Container> _containers;
+    private string _shipName;
     private double _speed; //in knots
-    private double _numbersOfShips; //in a container
+    private int _numbersOfShips; //in a container
     private double maxWeight; //in tons
 
-    public ContainerShip(double speed, double numbersOfShips, double maxWeight)
+    public ContainerShip(string shipName, double speed, int numbersOfShips, double maxWeight)
     {
+        ShipName = shipName;
         Speed = speed;
         NumbersOfShips = numbersOfShips;
         MaxWeight = maxWeight;
         Containers = new HashSet<Container>();
+        Storage.AddContainerShip(this);
     }
 
     public HashSet<Container> Containers
     {
         get {return _containers;} 
         set {_containers = value;}
+    }
+
+    public void ShowContainers()
+    {
+        int i = 0;
+        foreach (var container in Containers)
+        {
+           Console.WriteLine($"{++i}. " + container.ToString()); 
+        }
     }
 
     public void AddContainer(Container container)
@@ -60,6 +72,17 @@ public class ContainerShip
         }
     }
 
+    public Container GetContainer(string serialNumber)
+    {
+        foreach (var x in Containers)
+        {
+            if (x.SerialNumber == serialNumber)
+                return x;
+        }
+
+        return null;
+    }
+
     public static void SwitchBetween(ContainerShip ship1, ContainerShip ship2, Container container)
     {
         if (ship1.Containers.Contains(container))
@@ -79,6 +102,18 @@ public class ContainerShip
             Console.WriteLine($"Info dla kontenera {i}: {container.ToString()}");
         }
     }
+
+    public string ToString()
+    {
+        return $"{ShipName} (Prędkość: {Speed} węzłów, Liczba kontenerowców: {NumbersOfShips}, Maksymalna" +
+               $" waga: {MaxWeight})";
+    }
+
+    public string ShipName
+    {
+        get => _shipName;
+        set => _shipName = value;
+    }
     public double Speed
     {
         get {return _speed;}
@@ -90,7 +125,7 @@ public class ContainerShip
         }
     }
 
-    public double NumbersOfShips
+    public int NumbersOfShips
     {
         get {return _numbersOfShips;}
         set
@@ -100,7 +135,7 @@ public class ContainerShip
             _numbersOfShips = value;
         }
     }
-
+    
     public double MaxWeight
     {
         get {return maxWeight;}

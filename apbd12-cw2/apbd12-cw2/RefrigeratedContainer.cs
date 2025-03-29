@@ -59,6 +59,6 @@ public class RefrigeratedContainer : Container
 
     public override String ToString()
     {
-        return base.ToString() + $", Załadowany produkt: {ProductType}, Temperatura: {Temperature}";
+        return base.ToString() + $", Załadowany produkt: {ProductType}, Temperatura: {Temperature})";
     }
 }
